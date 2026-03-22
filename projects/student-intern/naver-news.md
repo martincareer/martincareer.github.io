@@ -5,6 +5,7 @@ permalink: /projects/student-intern/naver-news/
 author_profile: true
 ---
 
+<a href="/projects/student-intern/" class="back-to-list">← Student & Intern</a>
 네이버 뉴스를 키워드별로 수집할 수 있는 검색 엔진
 
 ---
@@ -44,7 +45,3 @@ author_profile: true
 ## 프로젝트 화면
 
 ![Search Naver News](/assets/images/slides/slide_36.png)
-
----
-
-<a href="/projects/student-intern/" class="btn btn--primary">← Student & Intern 목록으로</a>

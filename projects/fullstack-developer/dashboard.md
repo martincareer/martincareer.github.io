@@ -7,6 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
+<a href="/projects/fullstack-developer/" class="back-to-list">← Full Stack Developer</a>
 ## 프로젝트 개요
 
 | 항목 | 내용 |
@@ -58,7 +59,3 @@ toc_sticky: true
   <span class="skill-tag">MySQL</span>
   <span class="skill-tag">Python</span>
 </div>
-
----
-
-<a href="/projects/fullstack-developer/" class="btn btn--primary">← Full Stack Developer 목록으로</a>

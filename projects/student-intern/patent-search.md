@@ -5,6 +5,7 @@ permalink: /projects/student-intern/patent-search/
 author_profile: true
 ---
 
+<a href="/projects/student-intern/" class="back-to-list">← Student & Intern</a>
 Elastic Search 검색 엔진을 활용한 저작권 검색 웹 서비스
 
 ---
@@ -46,7 +47,3 @@ Elastic Search 검색 엔진을 활용한 저작권 검색 웹 서비스
 
 ### 검색 로직
 ![Patent Search 로직](/assets/images/slides/Patent Search Service-로직.png)
-
----
-
-<a href="/projects/student-intern/" class="btn btn--primary">← Student & Intern 목록으로</a>

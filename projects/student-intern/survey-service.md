@@ -7,6 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
+<a href="/projects/student-intern/" class="back-to-list">← Student & Intern</a>
 ## 프로젝트 개요
 
 | 항목 | 내용 |
@@ -68,7 +69,3 @@ toc_sticky: true
   <span class="skill-tag">Redis</span>
   <span class="skill-tag">EFK Stack</span>
 </div>
-
----
-
-<a href="/projects/student-intern/" class="btn btn--primary">← Student & Intern 목록으로</a>

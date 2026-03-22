@@ -7,6 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
+<a href="/projects/student-intern/" class="back-to-list">← Student & Intern</a>
 > 💡 회사 관련 정보를 내포하고 있기 때문에 자세한 내용은 제공할 수 없는 점 양해해주시면 감사하겠습니다.
 
 ## 프로젝트 개요
@@ -40,7 +41,3 @@ toc_sticky: true
   <span class="skill-tag">Python</span>
   <span class="skill-tag">Tableau</span>
 </div>
-
----
-
-<a href="/projects/student-intern/" class="btn btn--primary">← Student & Intern 목록으로</a>

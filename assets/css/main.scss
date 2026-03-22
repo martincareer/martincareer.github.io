@@ -249,3 +249,37 @@ html.dark-mode {
   transition: transform 0.2s;
 }
 .theme-toggle:hover { transform: scale(1.2); }
+
+/* ── 뒤로가기 버튼 (본문 좌측 상단) ── */
+.back-to-list {
+  display: inline-block;
+  margin-bottom: 1.2em;
+  padding: 0.4em 1em;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: #555;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba($primary-color, 0.15);
+    border-color: $primary-color;
+    color: #333;
+    text-decoration: none;
+  }
+}
+
+html.dark-mode .back-to-list {
+  color: #bbb;
+  background: #252525;
+  border-color: #444;
+
+  &:hover {
+    background: rgba($primary-color, 0.15);
+    border-color: $primary-color;
+    color: #ddd;
+  }
+}

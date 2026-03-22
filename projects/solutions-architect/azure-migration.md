@@ -7,6 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
+<a href="/projects/solutions-architect/" class="back-to-list">← Solutions Architect</a>
 ## 프로젝트 개요
 
 | 항목 | 내용 |
@@ -63,6 +64,3 @@ toc_sticky: true
   <span class="skill-tag">DNS</span>
 </div>
 
----
-
-<a href="/projects/solutions-architect/" class="btn btn--primary">← Solutions Architect 목록으로</a>
