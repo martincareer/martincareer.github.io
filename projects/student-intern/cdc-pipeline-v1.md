@@ -34,7 +34,7 @@ toc_sticky: true
 
 ## 스크린샷
 
-![CDC Pipeline](/assets/images/slides/slide_30.png)
+![CDC Pilot Project](/assets/images/slides/CDC Pilot Project.jpg)
 
 ---
 

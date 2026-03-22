@@ -44,7 +44,11 @@ toc_sticky: true
 
 ## 아키텍처
 
-![J사 Azure 마이그레이션 아키텍처](/assets/images/slides/slide_4.png)
+### 서비스 아키텍처
+![서비스 아키텍처](/assets/images/slides/J사 Azure 구독 간 마이그레이션-서비스아키텍처.png)
+
+### 상세 아키텍처
+![상세 아키텍처](/assets/images/slides/J사 Azure 구독 간 마이그레이션-상세아키텍처.png)
 
 ---
 

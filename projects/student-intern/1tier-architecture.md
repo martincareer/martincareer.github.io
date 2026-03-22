@@ -29,7 +29,7 @@ toc_sticky: true
 
 ## 아키텍처 및 결과
 
-![1Tier Architecture](/assets/images/slides/slide_27.png)
+![1Tier Architecture](/assets/images/slides/Build 1 Tier WS-WAS-DB Architecture.jpg)
 
 ---
 

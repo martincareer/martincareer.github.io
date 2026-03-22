@@ -45,10 +45,7 @@ GROUP BY EXTRACT(YEAR FROM __time), EXTRACT(MONTH FROM __time)
 ## 스크린샷
 
 ### CDC Pipeline & Druid & Superset
-![CDC Pipeline](/assets/images/slides/slide_28.png)
-
-### Druid Insight & Superset Dashboard
-![Druid & Superset](/assets/images/slides/slide_29.png)
+![CDC Pipeline v2.0](/assets/images/slides/Build CDC Pipeline(CDC Pilot Project ver 2.0).jpg)
 
 ---
 

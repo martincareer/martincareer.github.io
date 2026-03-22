@@ -44,7 +44,8 @@ Elastic Search 검색 엔진을 활용한 저작권 검색 웹 서비스
 
 ## 프로젝트 화면
 
-![Functional Description](/assets/images/slides/slide_35.png)
+### 검색 로직
+![Patent Search 로직](/assets/images/slides/Patent Search Service-로직.png)
 
 ---
 

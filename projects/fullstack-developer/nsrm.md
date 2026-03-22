@@ -43,9 +43,10 @@ toc_sticky: true
 ## 스크린샷
 
 ### Crawling Node
-![Crawling Node](/assets/images/slides/slide_17.png)
+![Crawling Node](/assets/images/slides/S사 NSRM-crawling Node.png)
 
-![Crawling Node 상세](/assets/images/slides/slide_18.png)
+### Crawling Node 상세
+![Crawling Node 상세](/assets/images/slides/S사 NSRM-crawling Node2.png)
 
 ---
 

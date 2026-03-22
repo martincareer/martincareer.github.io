@@ -44,7 +44,11 @@ toc_sticky: true
 
 ## 아키텍처
 
-![Azure DevOps 아키텍처](/assets/images/slides/slide_11.png)
+### 전체 아키텍처
+![전체 아키텍처](/assets/images/slides/Azure 기반 DevOps 아키텍처 설계 및 구축-아키텍처.png)
+
+### CI/CD 파이프라인
+![CI/CD 파이프라인](/assets/images/slides/Azure 기반 DevOps 아키텍처 설계 및 구축-CICD파이프라인.png)
 
 ---
 

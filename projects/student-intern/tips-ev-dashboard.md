@@ -41,7 +41,7 @@ toc_sticky: true
 
 ## 스크린샷
 
-![전기차 충전소 대시보드](/assets/images/slides/slide_31.png)
+![전기차 충전소 관련 대시보드](/assets/images/slides/Tips(국가사업)-전기차 충전소 관련 대시보드.jpg)
 
 ---
 

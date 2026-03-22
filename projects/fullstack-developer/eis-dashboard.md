@@ -44,7 +44,7 @@ toc_sticky: true
 ## 스크린샷
 
 ### Sample Analysis
-![Sample Analysis](/assets/images/slides/slide_20.png)
+![N사 EIS Dashboard](/assets/images/slides/N사 EIS Dashboard.png)
 
 ---
 

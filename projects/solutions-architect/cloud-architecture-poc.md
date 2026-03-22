@@ -42,20 +42,17 @@ toc_sticky: true
 
 ## 아키텍처
 
-### 전체 아키텍처
-![전체 아키텍처](/assets/images/slides/slide_6.png)
-
 ### 통합 아키텍처
-![통합 아키텍처](/assets/images/slides/slide_7.png)
+![통합 아키텍처](/assets/images/slides/J,K사 서비스별 클라우드 아키텍처 설계 및 모듈화(PoC)-통합아키텍처.png)
 
 ### 서비스 A 흐름도
-![서비스 A 흐름도](/assets/images/slides/slide_8.png)
+![서비스 A 흐름도](/assets/images/slides/J,K사 서비스별 클라우드 아키텍처 설계 및 모듈화(PoC)-서비스A흐름도.png)
 
 ### 서비스 B 흐름도
-![서비스 B 흐름도](/assets/images/slides/slide_9.png)
+![서비스 B 흐름도](/assets/images/slides/J,K사 서비스별 클라우드 아키텍처 설계 및 모듈화(PoC)-서비스B흐름도.png)
 
 ### 서비스 C 흐름도
-![서비스 C 흐름도](/assets/images/slides/slide_10.png)
+![서비스 C 흐름도](/assets/images/slides/J,K사 서비스별 클라우드 아키텍처 설계 및 모듈화(PoC)-서비스C흐름도.png)
 
 ---
 

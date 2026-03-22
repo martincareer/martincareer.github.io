@@ -40,11 +40,11 @@ toc_sticky: true
 
 ## 스크린샷
 
-### Create Chart
-![Create Chart](/assets/images/slides/slide_15.png)
+### 차트 생성
+![차트 생성](/assets/images/slides/Dashboard 개발 및 유지 보수-차트생성.png)
 
-### Sample Dashboard
-![Sample Dashboard](/assets/images/slides/slide_16.png)
+### 대시보드
+![대시보드](/assets/images/slides/Dashboard 개발 및 유지 보수-대시보드.png)
 
 ---
 

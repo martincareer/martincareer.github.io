@@ -45,10 +45,10 @@ toc_sticky: true
 ## 아키텍처
 
 ### System Architecture
-![System Architecture](/assets/images/slides/slide_22.png)
+![System Architecture](/assets/images/slides/Kakao I Cloud를 이용한 캠핑 용품 거래 중개 서비스 구축하기-system architecture.jpg)
 
-### Landing Page & API
-![Landing Page](/assets/images/slides/slide_23.png)
+### Landing Page & API Information
+![Landing Page & API](/assets/images/slides/Kakao I Cloud를 이용한 캠핑 용품 거래 중개 서비스 구축하기-API info & landing page.png)
 
 ---
 

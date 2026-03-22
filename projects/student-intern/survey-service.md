@@ -43,10 +43,16 @@ toc_sticky: true
 ## 스크린샷
 
 ### System Architecture
-![System Architecture](/assets/images/slides/slide_24.png)
+![System Architecture](/assets/images/slides/Kakao I Cloud를 이용한 설문 조사 웹 서비스 구축하기-system architecture.jpg)
 
-### Survey Manage Page & API & WBS
-![Survey Page](/assets/images/slides/slide_25.png)
+### Service Page
+![Service Page](/assets/images/slides/Kakao I Cloud를 이용한 설문 조사 웹 서비스 구축하기- service page.png)
+
+### API Information
+![API Information](/assets/images/slides/Kakao I Cloud를 이용한 설문 조사 웹 서비스 구축하기-API info.png)
+
+### WBS (Jira)
+![WBS](/assets/images/slides/Kakao I Cloud를 이용한 설문 조사 웹 서비스 구축하기-ws.png)
 
 ---
 

@@ -39,17 +39,13 @@ toc_sticky: true
 
 ---
 
-## 서비스 아키텍처
+## 스크린샷
 
-![AI Studio 서비스 아키텍처](/assets/images/slides/slide_5.png)
+### 로그인 화면
+![AI Studio 로그인 화면](/assets/images/slides/AI Studio 개발 및 유지 보수-로그인화면.png)
 
-## AI Studio Scenario
-
-![AI Studio Scenario](/assets/images/slides/slide_14.png)
-
-## AI Studio Login
-
-![AI Studio Login](/assets/images/slides/slide_13.png)
+### Scenario
+![AI Studio Scenario](/assets/images/slides/AI Studio 개발 및 유지 보수-scenario.png)
 
 ---
 

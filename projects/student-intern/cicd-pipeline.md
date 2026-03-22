@@ -35,7 +35,7 @@ toc_sticky: true
 
 ## CI/CD Pipeline
 
-![CI/CD Pipeline](/assets/images/slides/slide_26.png)
+![CI/CD Pipeline](/assets/images/slides/Build CI:CD PipeLine.jpg)
 
 ---
 
