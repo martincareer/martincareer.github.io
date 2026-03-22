@@ -7,7 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
-<a href="/projects/student-intern/" class="back-to-list">← Student & Intern</a>
+<a href="/projects/student-intern/" class="back-to-list">← 목록으로 돌아가기</a>
 TeamLab 학부생 연구원 및 학부 과정에서 진행한 세미나 모음입니다.
 
 ---

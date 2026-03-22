@@ -7,7 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
-<a href="/projects/student-intern/" class="back-to-list">← Student & Intern</a>
+<a href="/projects/student-intern/" class="back-to-list">← 목록으로 돌아가기</a>
 > 💡 회사 관련 정보를 내포하고 있기 때문에 상세한 내용은 제공할 수 없는 점 양해해주시면 감사하겠습니다.
 
 ## 프로젝트 개요

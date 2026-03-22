@@ -7,7 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
-<a href="/projects/fullstack-developer/" class="back-to-list">← Full Stack Developer</a>
+<a href="/projects/fullstack-developer/" class="back-to-list">← 목록으로 돌아가기</a>
 ## 프로젝트 개요
 
 | 항목 | 내용 |
