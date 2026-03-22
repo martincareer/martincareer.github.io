@@ -1,0 +1,251 @@
+---
+---
+
+/* 소라색 (하늘+보라 살짝) 테마 */
+$primary-color: #B0BEF5;
+
+$max-width: 1400px;
+$x-large: 1400px;
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+/* ── 프로필 사진 ── */
+.author__avatar {
+  width: 180px;
+  height: 180px;
+}
+
+.author__avatar img {
+  max-width: 180px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid $primary-color;
+}
+
+/* ── Career Timeline ── */
+.career-timeline {
+  position: relative;
+  padding-left: 2em;
+  border-left: 2px solid $primary-color;
+}
+
+.career-item {
+  position: relative;
+  margin-bottom: 1.8em;
+  padding-left: 1em;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -2.35em;
+    top: 0.35em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $primary-color;
+    border: 2px solid #fff;
+  }
+}
+
+.career-date {
+  font-size: 0.8em;
+  color: #888;
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+
+.career-content h4 {
+  margin: 0 0 0.2em;
+  font-size: 1em;
+}
+
+.career-role {
+  font-size: 0.85em;
+  color: $primary-color;
+  font-weight: 600;
+  margin: 0 0 0.3em;
+}
+
+.career-content p:last-child {
+  font-size: 0.85em;
+  color: #666;
+  margin: 0;
+}
+
+/* ── Skills Grid ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.2em;
+}
+
+.skill-category {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1.2em;
+  border: 1px solid #eee;
+}
+
+.skill-category h4 {
+  margin: 0 0 0.8em;
+  font-size: 0.95em;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.25em 0.7em;
+  background: rgba($primary-color, 0.15);
+  color: #444;
+  border-radius: 14px;
+  font-size: 0.78em;
+  font-weight: 500;
+}
+
+/* ── Project Cards ── */
+.project-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1.4em;
+  margin-bottom: 1.2em;
+  border: 1px solid #eee;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  h4 {
+    margin: 0 0 0.3em;
+    font-size: 1.05em;
+  }
+}
+
+.project-meta {
+  font-size: 0.8em;
+  color: #888;
+  margin: 0 0 0.6em;
+}
+
+.project-card > p {
+  font-size: 0.88em;
+  line-height: 1.6;
+  color: #555;
+}
+
+.project-result {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-top: 0.6em;
+}
+
+/* ── 다크모드 ── */
+html.dark-mode {
+  body {
+    background-color: #181a1b;
+    color: #d4d4d4;
+  }
+
+  .masthead {
+    background-color: #1e2021;
+    border-bottom: 1px solid #333;
+  }
+
+  .greedy-nav {
+    background: #1e2021;
+    a { color: #d4d4d4; &:hover { color: $primary-color; } }
+  }
+
+  .sidebar {
+    background-color: transparent;
+    color: #d4d4d4;
+    a { color: #bbb; &:hover { color: $primary-color; } }
+  }
+
+  .page__title, .page__title a { color: #e8e8e8; }
+  .page__content {
+    color: #d4d4d4;
+    a { color: lighten($primary-color, 8%); }
+    h2, h3, h4 { color: #e0e0e0; border-bottom-color: #333; }
+    hr { border-color: #333; }
+  }
+
+  .toc {
+    background-color: #1e2021;
+    border-color: #333;
+    .nav__title { background: #252525; color: #d4d4d4; }
+    a { color: #bbb; &:hover { color: $primary-color; } }
+  }
+
+  .career-item::before { border-color: #181a1b; }
+  .career-content p:last-child { color: #aaa; }
+  .career-date { color: #999; }
+
+  .skill-category { background: #1e2021; border-color: #333; }
+  .skill-tag { background: rgba($primary-color, 0.12); color: #ccc; }
+
+  .project-card {
+    background: #1e2021;
+    border-color: #333;
+    &:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+    > p { color: #bbb; }
+  }
+  .project-meta { color: #999; }
+  .project-result { color: #66bb6a; }
+
+  .page__footer {
+    background-color: #1e2021;
+    color: #888;
+    border-top-color: #333;
+    a { color: #bbb; }
+  }
+}
+
+/* ── 모바일 ── */
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .career-timeline { padding-left: 1.5em; }
+}
+
+@media (max-width: 1023px) {
+  .sidebar.sticky {
+    position: relative !important;
+    top: auto !important;
+    float: none !important;
+    width: 100% !important;
+    margin-bottom: 1.5em;
+  }
+
+  .sidebar .h-card {
+    min-height: auto !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8em;
+  }
+
+  .author__avatar { width: 80px !important; height: 80px !important; }
+  .author__avatar img { max-width: 80px !important; width: 80px !important; height: 80px !important; }
+}
+
+/* ── 다크모드 토글 ── */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 8px;
+  line-height: 1;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+.theme-toggle:hover { transform: scale(1.2); }

@@ -1,0 +1,70 @@
+# ──────────────────────────────────────────────
+# 사이트 기본 정보
+# ──────────────────────────────────────────────
+title: "Martin's Career"
+description: "Solutions Architect Portfolio"
+url: "https://martincareer.github.io"
+baseurl: ""
+locale: "ko-KR"
+
+# ──────────────────────────────────────────────
+# 테마 설정
+# ──────────────────────────────────────────────
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin: "air"
+
+# ──────────────────────────────────────────────
+# 저자 정보
+# ──────────────────────────────────────────────
+author:
+  name: "Martin"
+  avatar: "/assets/images/profile.jpg"
+  bio: "Solutions Architect"
+  location: "South Korea"
+  links:
+    - label: "Tech Blog"
+      icon: "fas fa-fw fa-blog"
+      url: "https://martinmlops.github.io"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/_martlln"
+
+# ──────────────────────────────────────────────
+# 플러그인
+# ──────────────────────────────────────────────
+plugins:
+  - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
+# ──────────────────────────────────────────────
+# 기본값 설정
+# ──────────────────────────────────────────────
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# ──────────────────────────────────────────────
+# Markdown
+# ──────────────────────────────────────────────
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+
+# ──────────────────────────────────────────────
+# 빌드 설정
+# ──────────────────────────────────────────────
+include:
+  - _pages
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - node_modules
+  - README.md
+  - LICENSE
