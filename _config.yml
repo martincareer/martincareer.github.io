@@ -59,6 +59,9 @@ kramdown:
 # ──────────────────────────────────────────────
 # 빌드 설정
 # ──────────────────────────────────────────────
+after_footer_scripts:
+  - /assets/js/back-button.js
+
 include:
   - _pages
 

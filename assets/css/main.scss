@@ -263,9 +263,7 @@ html.dark-mode {
   text-decoration: none;
   transition: all 0.2s;
   letter-spacing: -0.02em;
-  /* 제목 위로 끌어올리기 */
-  margin-top: -3.2em;
-  margin-bottom: 1.8em;
+  margin-bottom: 0.6em;
 
   &:hover {
     background: rgba($primary-color, 0.1);
@@ -273,6 +271,11 @@ html.dark-mode {
     color: #444;
     text-decoration: none;
   }
+}
+
+/* 제목-본문 사이 여백 줄이기 */
+.page__title {
+  margin-bottom: 0.3em;
 }
 
 html.dark-mode .back-to-list {
