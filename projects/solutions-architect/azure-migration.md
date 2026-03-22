@@ -45,10 +45,10 @@ toc_sticky: true
 ## 아키텍처
 
 ### 서비스 아키텍처
-![서비스 아키텍처](/assets/images/slides/J사 Azure 구독 간 마이그레이션-서비스아키텍처.png)
+![상세 아키텍처](/assets/images/slides/J사 Azure 구독 간 마이그레이션-상세아키텍처.png)
 
 ### 상세 아키텍처
-![상세 아키텍처](/assets/images/slides/J사 Azure 구독 간 마이그레이션-상세아키텍처.png)
+![서비스 아키텍처](/assets/images/slides/J사 Azure 구독 간 마이그레이션-서비스아키텍처.png)
 
 ---
 
@@ -62,3 +62,7 @@ toc_sticky: true
   <span class="skill-tag">OWASP ZAP</span>
   <span class="skill-tag">DNS</span>
 </div>
+
+---
+
+<a href="/projects/solutions-architect/" class="btn btn--primary">← Solutions Architect 목록으로</a>

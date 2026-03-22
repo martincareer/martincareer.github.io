@@ -42,3 +42,7 @@ toc_sticky: true
   <span class="skill-tag">Tomcat</span>
   <span class="skill-tag">MySQL</span>
 </div>
+
+---
+
+<a href="/projects/student-intern/" class="btn btn--primary">← Student & Intern 목록으로</a>

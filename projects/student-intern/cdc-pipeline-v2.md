@@ -60,3 +60,7 @@ GROUP BY EXTRACT(YEAR FROM __time), EXTRACT(MONTH FROM __time)
   <span class="skill-tag">Druid</span>
   <span class="skill-tag">Superset</span>
 </div>
+
+---
+
+<a href="/projects/student-intern/" class="btn btn--primary">← Student & Intern 목록으로</a>

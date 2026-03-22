@@ -69,3 +69,7 @@ toc_sticky: true
   <span class="skill-tag">NAT Gateway</span>
   <span class="skill-tag">WAF</span>
 </div>
+
+---
+
+<a href="/projects/solutions-architect/" class="btn btn--primary">← Solutions Architect 목록으로</a>

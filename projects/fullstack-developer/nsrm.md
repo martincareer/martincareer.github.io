@@ -61,3 +61,7 @@ toc_sticky: true
   <span class="skill-tag">Python</span>
   <span class="skill-tag">Parquet</span>
 </div>
+
+---
+
+<a href="/projects/fullstack-developer/" class="btn btn--primary">← Full Stack Developer 목록으로</a>
