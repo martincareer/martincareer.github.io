@@ -13,3 +13,8 @@ vendor/
 내부세미나_*.html
 career_*.md
 경력기술서_*.md
+
+# 아키텍처 다이어그램 원본/작업본 — 파일명에 고객사명, 원본에 내부 리소스명 포함.
+# 비식별 처리본은 블로그 저장소(blog/assets/images/)에서 관리합니다.
+다이소_*.jpg
+architecture-overview.jpg
