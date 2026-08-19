@@ -10,7 +10,7 @@ toc_sticky: true
 
 안녕하세요, **Martin(조석영)** 입니다.
 
-Azure, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경험을 바탕으로 Solutions Architect로 활동하고 있습니다.
+Azure/AWS, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경험을 바탕으로 Solutions Architect로 활동하고 있습니다.
 
 - GSNeotek Cloud 팀 Solutions Architect (2025.04 ~)
 - EMRO AI 사업본부 AI 플랫폼 파트 (2023.04 ~ 2025.04)
@@ -27,7 +27,7 @@ Azure, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경
   <div class="career-content">
     <h4>GSNeotek Cloud 팀</h4>
     <p class="career-role">Solutions Architect</p>
-    <p>Azure 기반 클라우드 아키텍처 설계, 마이그레이션, DevOps 구축</p>
+    <p>Azure/AWS 기반 클라우드 아키텍처 설계, 마이그레이션, DevOps 구축, AI 추천 서비스 구축·운영</p>
   </div>
 </div>
 
@@ -85,6 +85,10 @@ Azure, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경
     <span class="skill-tag">AGW</span>
     <span class="skill-tag">Azure DevOps</span>
     <span class="skill-tag">AI Foundry</span>
+    <span class="skill-tag">AWS</span>
+    <span class="skill-tag">Amazon Bedrock</span>
+    <span class="skill-tag">Lambda</span>
+    <span class="skill-tag">Serverless</span>
     <span class="skill-tag">Kakao I Cloud</span>
   </div>
 </div>
@@ -145,8 +149,8 @@ Azure, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경
 
 <div class="project-card">
   <h4><a href="/projects/solutions-architect/">☁️ Solutions Architect</a></h4>
-  <p>Azure 기반 클라우드 아키텍처 설계, 마이그레이션, DevOps 구축 프로젝트</p>
-  <p class="project-meta">3개 프로젝트 · 2025.05 ~</p>
+  <p>Azure/AWS 기반 클라우드 아키텍처 설계, 마이그레이션, DevOps 구축, AI 추천 서비스 프로젝트</p>
+  <p class="project-meta">4개 프로젝트 · 2025.05 ~</p>
 </div>
 
 <div class="project-card">

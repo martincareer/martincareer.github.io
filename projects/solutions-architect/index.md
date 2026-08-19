@@ -5,9 +5,16 @@ permalink: /projects/solutions-architect/
 author_profile: true
 ---
 
-Solutions Architect로서 수행한 Azure 기반 클라우드 아키텍처 설계, 마이그레이션, DevOps 구축 프로젝트입니다.
+Solutions Architect로서 수행한 Azure/AWS 기반 클라우드 아키텍처 설계, 마이그레이션, DevOps 구축, AI 추천 서비스 구축 프로젝트입니다.
 
 ---
+
+<div class="project-card">
+  <h4><a href="/projects/solutions-architect/similar-product-recommendation/">유사상품 추천 서비스 &amp; 추천결과 피드백 서비스 구축</a></h4>
+  <p class="project-meta">2026.04 ~ 진행 중 · 기여도 100%</p>
+  <p>임베딩·LLM 기반 결품 대체상품 추천 파이프라인과 현장 피드백 서비스를 AWS 서버리스로 구축·운영</p>
+  <p class="project-result">✅ PoC 지원에서 정식 프로젝트로 확대 · Hit@5 3.2배 개선</p>
+</div>
 
 <div class="project-card">
   <h4><a href="/projects/solutions-architect/azure-migration/">J사 Azure 구독 간 마이그레이션</a></h4>

@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+vendor/
+
+# 비공개 원천 문서 — 고객사 실명·서비스 URL·관리자 키·사번 포함.
+# 커밋되면 Jekyll이 공개 페이지로 렌더링하므로 절대 추적하지 않습니다.
+내부세미나_*.html
+career_*.md
+경력기술서_*.md
