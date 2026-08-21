@@ -8,10 +8,10 @@
    ROUGE-EXCEPTION-START … ROUGE-EXCEPTION-END 마커 구간 안에서만 hex를
    쓰며, 왜 알파 합성으로 대체할 수 없는지는 그 주석에 적어 뒀다.
 
-   스타일시트 밖의 예외로 assets/js/mermaid-init.js가 mermaid에 넘길 색을
-   직접 들고 있다. mermaid API는 리터럴 색만 받고, JS에서는 CSS 커스텀
-   프로퍼티가 해석되지 않기 때문이다 — 토큰 문자열을 넣으면 안 되고,
-   굳이 토큰을 읽어야 한다면 getComputedStyle로 읽어야 한다.
+   스타일시트 밖(assets/js/*.js)에는 색을 들고 있는 파일이 하나도 없다.
+   JS에서는 CSS 커스텀 프로퍼티가 해석되지 않으므로 "rgb(var(--accent))"
+   같은 문자열을 JS로 넘기면 안 되며, 굳이 토큰 값을 읽어야 한다면
+   getComputedStyle로 읽어야 한다.
 
    이 규칙들은 __tests__/shell.test.js 의 "색상 규칙" describe가 강제한다. */
 

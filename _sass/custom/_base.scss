@@ -12,7 +12,9 @@
    1. 리셋
    ══════════════════════════════════════════════════════════════ */
 
-/* 셸/레일/검색 패널의 px 크기 계산이 전부 border-box 전제다. */
+/* 셸(헤더 52px·아이콘 버튼 34px)과 레일의 px 크기 계산이 전부 border-box
+   전제다. 테마의 _reset.scss가 `* { box-sizing: border-box }`를 깔아 주던
+   것을, ::before/::after까지 포함해 직접 선언한다. */
 *,
 *::before,
 *::after { box-sizing: border-box; }
@@ -35,6 +37,32 @@ html {
   @media (min-width: 48em)   { font-size: 18px; }
   @media (min-width: 64em)   { font-size: 20px; }
   @media (min-width: 87.5em) { font-size: 22px; }
+
+  /* 테마의 _base.scss가 html에 걸던 폰트 스무딩. 이게 빠지면 macOS/Safari·
+     Chrome에서 본문 글자가 눈에 띄게 두꺼워진다 — 눈에 보이는 차이라 그대로
+     옮긴다. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 테마의 _reset.scss는 html에 스킨 배경색(air 스킨의 옅은 회색)을 칠했다.
+     html에 배경이 있으면 body 배경이 캔버스로 전파되지 않으므로, 오버스크롤
+     영역·문서보다 짧은 페이지의 여백은 html 배경이 보인다. 테마가 사라지면
+     body → 캔버스 전파에 의존하게 되는데, 그 규칙을 암묵적으로 두지 않고
+     여기서 토큰으로 명시한다 (다크에서도 자동으로 검정이 된다). */
+  background-color: rgb(var(--bg));
+}
+
+/* 테마의 _reset.scss는 선택 영역을 "흰 글자 + 검은 배경"으로 하드코딩했다.
+   hex를 쓰지 않고 같은 결과를 얻기 위해 fg/bg를 뒤집는다 — 라이트에서는
+   테마와 사실상 동일하고(--fg 29 29 31 / --bg 흰색), 다크에서는 테마처럼
+   검은 배경에 묻히지 않고 알아서 반전된다. */
+::selection {
+  color: rgb(var(--bg));
+  background: rgb(var(--fg));
+}
+::-moz-selection {
+  color: rgb(var(--bg));
+  background: rgb(var(--fg));
 }
 
 body {
@@ -90,6 +118,35 @@ nav a { text-decoration: none; }
    그 의도대로 accent로 통일한다. 밑줄은 브라우저 기본을 그대로 두어
    본문 링크가 색 외에도 구분되게 한다(테마도 밑줄을 지우지 않았다). */
 a { color: rgb(var(--accent)); }
+
+/* 테마는 전역 `a:hover`에 $link-color-hover(= 링크색을 25% 어둡게 섞은 값)를
+   지정했다. 그 값을 그대로 옮기면 다크 모드에서 링크가 배경 쪽으로 더 어두워져
+   대비가 나빠지므로, 색은 --accent로 두고 "호버에도 accent를 유지한다"만
+   재현한다. 실제로 이 규칙이 유일하게 무언가를 바꾸는 곳은 헤더 로고다:
+   .header-logo는 muted(0,1,0)인데 테마의 a:hover(0,1,1)가 이겨서 지금도
+   호버하면 링크색으로 변한다. 이 규칙을 빼면 그 동작이 조용히 사라진다.
+   본문·레일·푸터 링크는 각자 더 구체적인 호버 규칙이 있어 영향받지 않는다. */
+a:hover { color: rgb(var(--accent)); }
+
+/* 테마의 `u, ins` / `del a` 규칙. 본문이 아직 <u>/<ins>/<del>을 쓰지 않지만,
+   쓰는 순간 밑줄이 링크와 헷갈리지 않도록 하는 규칙이라 함께 옮긴다. */
+u,
+ins {
+  text-decoration: none;
+  border-bottom: 1px solid rgb(var(--fg));
+
+  a { color: inherit; }
+}
+del a { color: inherit; }
+
+/* 테마의 abbr 규칙. 아래 @media print 블록이 `abbr[title]::after`를 지우는
+   것을 전제로 쓰여 있는데, 그 짝이 되는 표시 규칙은 테마가 갖고 있었다. */
+abbr[title],
+abbr[data-original-title] {
+  text-decoration: none;
+  cursor: help;
+  border-bottom: 1px dotted rgb(var(--fg));
+}
 
 /* 키보드 포커스 링 (테마의 outline 규칙을 토큰으로) */
 a:focus-visible,
@@ -190,10 +247,11 @@ tr, td, th { vertical-align: middle; }
 /* ══════════════════════════════════════════════════════════════
    5. 폼 컨트롤
    ══════════════════════════════════════════════════════════════
-   실제로 렌더되는 폼 요소는 헤더 검색창(.search-panel-input)과 아이콘
-   버튼뿐이고, 둘 다 _shell.scss가 완전히 스타일링한다. 그래서 테마의
-   두꺼운 폼 스킨(width:100% · 그림자 · radius)은 소비자가 없어 옮기지
-   않고, UA 기본값을 정리하는 최소한만 남긴다. */
+   이 사이트에 실제로 렌더되는 폼 요소는 헤더/레일의 아이콘 버튼
+   (.icon-btn) 뿐이다 — 검색 기능이 없어 input이 전혀 나오지 않는다.
+   그래서 테마의 두꺼운 폼 스킨(width:100% · 그림자 · radius)과
+   input[type=search] 관련 벤더 규칙은 소비자가 없어 옮기지 않고,
+   UA 기본값을 정리하는 최소한만 남긴다. */
 button, input, select, textarea {
   margin: 0;
   font-family: inherit;
@@ -202,6 +260,18 @@ button, input, select, textarea {
   vertical-align: middle;
 }
 textarea { overflow: auto; resize: vertical; vertical-align: top; }
+
+/* 테마의 폼 리셋 중 실제로 우리 버튼에 걸리던 두 가지.
+   cursor는 _shell.scss의 .icon-btn이 이미 지정하지만, 테마가 button 전반에
+   보장하던 값이라 요소 수준에서도 유지한다. ::-moz-focus-inner는 파이어폭스가
+   버튼 안쪽에 그리는 점선 테두리/여분 패딩을 없앤다(원형 아이콘 버튼이라
+   이게 남으면 테두리가 이중으로 보인다). */
+button { cursor: pointer; }
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
 
 
 /* ══════════════════════════════════════════════════════════════
@@ -231,7 +301,12 @@ pre { overflow-x: auto; }
 
 /* ══════════════════════════════════════════════════════════════
    7. Mermaid 다이어그램
-   ══════════════════════════════════════════════════════════════ */
+   ══════════════════════════════════════════════════════════════
+   이 사이트는 mermaid를 로드하지 않는다(assets/js/mermaid-init.js 없음,
+   after_footer_scripts에도 없음) — 아키텍처 그림은 전부
+   assets/images/slides/*.jpg 이미지다. 규칙 자체는 좁은 화면에서 넘치는
+   블록을 가로 스크롤시키는 한 줄뿐이고 매칭되는 요소가 없으면 무해하므로,
+   지우기보다 남겨 둔다(블로그와 파티셜을 계속 맞춰 갈 여지도 남는다). */
 @media (max-width: 768px) {
   .mermaid {
     overflow-x: auto;
@@ -243,10 +318,10 @@ pre { overflow-x: auto; }
 /* ══════════════════════════════════════════════════════════════
    8. notice 박스 (kramdown의 {: .notice--info} 등)
    ══════════════════════════════════════════════════════════════
-   테마가 제공하던 컴포넌트지만 본문이 실제로 쓰고 있다
-   (_posts/2026-01-08-authn-authz-entra-architecture.md 의 4곳).
-   테마와 함께 사라지면 그 인용구들이 민무늬가 되므로 토큰으로 옮긴다.
-   색은 --accent / --ok / --warn / --danger 로 합성해 라이트·다크 양쪽에서
+   테마가 제공하던 컴포넌트다. 이 저장소의 26개 페이지는 아직 {: .notice--*}
+   IAL을 쓰지 않지만(grep 0건), kramdown 저자용 관용구라 페이지가 하나
+   추가되는 순간 다시 필요해진다. 지우는 대신 토큰으로 옮겨 둔다 — 색은
+   --accent / --ok / --warn / --danger 로 합성해 라이트·다크 양쪽에서
    자동으로 대비가 맞는다. */
 .notice,
 .notice--primary,
@@ -286,6 +361,16 @@ blockquote.notice--danger  { border-left-color: rgb(var(--danger)); }
 /* ══════════════════════════════════════════════════════════════
    9. 인쇄
    ══════════════════════════════════════════════════════════════ */
+/* 테마가 base에 전역으로 걸어 둔 orphans/widows. 페이지 분할(인쇄·다단)에서만
+   효과가 있는 속성이라 미디어쿼리 없이 테마와 같은 자리·같은 값으로 옮긴다.
+   이력서는 인쇄/PDF로 저장될 가능성이 높아 실제로 의미가 있다. */
+p, pre, blockquote,
+ul, ol, dl,
+figure, table, fieldset {
+  orphans: 3;
+  widows: 3;
+}
+
 @media print {
   /* 링크 뒤에 URL을 덧붙이지 않는다 */
   a[href]::after,
