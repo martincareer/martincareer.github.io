@@ -7,6 +7,10 @@ _site/
 .jekyll-metadata
 Gemfile.lock
 vendor/
+.bundle/
+
+# Node (테스트용 jest/js-yaml)
+node_modules/
 
 # 비공개 원천 문서 — 고객사 실명·서비스 URL·관리자 키·사번 포함.
 # 커밋되면 Jekyll이 공개 페이지로 렌더링하므로 절대 추적하지 않습니다.
@@ -18,3 +22,9 @@ career_*.md
 # 비식별 처리본은 블로그 저장소(blog/assets/images/)에서 관리합니다.
 다이소_*.jpg
 architecture-overview.jpg
+
+# 프로필 원본 (9MB, 웹용은 profile-hero.jpg 로 축소해 커밋)
+assets/images/profile_latest.JPG
+
+# SDD 진행 레저 (로컬 스크래치)
+.superpowers/

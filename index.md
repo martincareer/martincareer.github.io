@@ -1,18 +1,21 @@
 ---
 title: "Portfolio"
-layout: single
-author_profile: true
-toc: true
-toc_sticky: true
+layout: page
+tagline: "Azure/AWS, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경험을 바탕으로 Solutions Architect로 활동하고 있습니다."
+current_role: "GSNeotek Cloud 팀 · Solutions Architect · 2025.04 ~"
+headline_skills:
+  - "Azure"
+  - "AWS"
+  - "Kubernetes"
+  - "Terraform"
+  - "AI / LLM"
 ---
 
 ## About Me
 
 안녕하세요, **Martin(조석영)** 입니다.
 
-Azure/AWS, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경험을 바탕으로 Solutions Architect로 활동하고 있습니다.
-
-- GSNeotek Cloud 팀 Solutions Architect (2025.04 ~)
+- **GSNeotek Cloud 팀 Solutions Architect (2025.04 ~ 현재)**
 - EMRO AI 사업본부 AI 플랫폼 파트 (2023.04 ~ 2025.04)
 - 가천대학교 산업경영공학과 & 소프트웨어학과 복수전공 (Summa Cum Laude 수여)
 
@@ -76,15 +79,21 @@ Azure/AWS, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발
 <div class="skills-grid">
 
 <div class="skill-category">
-  <h4>☁️ Cloud & Infra</h4>
+  <h4>☁️ Azure</h4>
   <div class="skill-tags">
     <span class="skill-tag">Azure</span>
     <span class="skill-tag">AKS</span>
-    <span class="skill-tag">WAF</span>
     <span class="skill-tag">VNet</span>
     <span class="skill-tag">AGW</span>
+    <span class="skill-tag">WAF</span>
     <span class="skill-tag">Azure DevOps</span>
     <span class="skill-tag">AI Foundry</span>
+  </div>
+</div>
+
+<div class="skill-category">
+  <h4>☁️ AWS & 기타 클라우드</h4>
+  <div class="skill-tags">
     <span class="skill-tag">AWS</span>
     <span class="skill-tag">Amazon Bedrock</span>
     <span class="skill-tag">Lambda</span>

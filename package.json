@@ -1,0 +1,17 @@
+{
+  "name": "martincareer-github-io-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tests for the career portfolio Jekyll site",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testMatch": ["**/__tests__/**/*.test.js"]
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "jest": "^29.7.0",
+    "js-yaml": "^4.1.0"
+  }
+}

@@ -1,10 +1,7 @@
 ---
 title: "N사 EIS Dashboard"
-layout: single
+layout: page
 permalink: /projects/fullstack-developer/eis-dashboard/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/fullstack-developer/" class="back-to-list">← 목록으로 돌아가기</a>

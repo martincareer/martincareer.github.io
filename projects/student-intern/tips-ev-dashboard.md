@@ -1,10 +1,7 @@
 ---
 title: "전기차 충전소 대시보드 (Tips 국가사업)"
-layout: single
+layout: page
 permalink: /projects/student-intern/tips-ev-dashboard/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/student-intern/" class="back-to-list">← 목록으로 돌아가기</a>

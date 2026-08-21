@@ -1,10 +1,7 @@
 ---
 title: "S사 NSRM 공급망 관리"
-layout: single
+layout: page
 permalink: /projects/fullstack-developer/nsrm/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/fullstack-developer/" class="back-to-list">← 목록으로 돌아가기</a>

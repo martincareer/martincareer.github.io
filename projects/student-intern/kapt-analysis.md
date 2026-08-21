@@ -1,10 +1,7 @@
 ---
 title: "K-APT 아파트 충전기 분석"
-layout: single
+layout: page
 permalink: /projects/student-intern/kapt-analysis/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/student-intern/" class="back-to-list">← 목록으로 돌아가기</a>

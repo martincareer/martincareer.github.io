@@ -1,10 +1,7 @@
 ---
 title: "유사상품 추천 서비스 & 추천결과 피드백 서비스 구축"
-layout: single
+layout: page
 permalink: /projects/solutions-architect/similar-product-recommendation/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/solutions-architect/" class="back-to-list">← 목록으로 돌아가기</a>

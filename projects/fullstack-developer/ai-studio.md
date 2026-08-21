@@ -1,10 +1,7 @@
 ---
 title: "AI Studio 개발 및 유지보수"
-layout: single
+layout: page
 permalink: /projects/fullstack-developer/ai-studio/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/fullstack-developer/" class="back-to-list">← 목록으로 돌아가기</a>
