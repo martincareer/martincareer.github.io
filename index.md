@@ -15,6 +15,7 @@ headline_skills:
 
 안녕하세요, **Martin(조석영)** 입니다.
 
+- **GSNeotek Cloud 팀 Solutions Architect (2025.04 ~ 현재)**
 - EMRO AI 사업본부 AI 플랫폼 파트 (2023.04 ~ 2025.04)
 - 가천대학교 산업경영공학과 & 소프트웨어학과 복수전공 (Summa Cum Laude 수여)
 
