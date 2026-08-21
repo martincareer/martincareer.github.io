@@ -128,6 +128,29 @@ a { color: rgb(var(--accent)); }
    본문·레일·푸터 링크는 각자 더 구체적인 호버 규칙이 있어 영향받지 않는다. */
 a:hover { color: rgb(var(--accent)); }
 
+/* ── 방문한 링크 색 고정 ─────────────────────────────────
+   minimal-mistakes가 `a:visited`에 회색을 지정했다. 그 결과 이미 방문한
+   프로젝트 카드만 회색으로 바뀌어, 목록에서 한 항목만 비활성처럼 보였다.
+   포트폴리오에서 방문 여부는 전달할 정보가 아니므로 링크 색을 통일한다.
+
+   테마를 걷어낸 뒤에도 이 규칙은 반드시 유지한다 — 브라우저 UA 스타일시트가
+   여전히 자체 :visited(보라/회색)를 적용하기 때문에, 지우면 테마가 있던
+   때와 똑같은 증상이 브라우저 기본값으로 되돌아온다.
+
+   (원래 이 블록은 파일 맨 끝, ROUGE-EXCEPTION-END 마커 뒤에 있었다.
+   rouge 예외 구간이 파일의 격리된 꼬리가 되도록 링크 규칙들 옆으로 옮겼다 —
+   선택자가 겹치는 규칙이 사이에 없어 캐스케이드 결과는 동일하다.) */
+a:visited {
+  color: inherit;
+}
+
+.post-body a:visited,
+.page-doc a:visited,
+.project-card a:visited,
+.hero-link:visited {
+  color: rgb(var(--accent));
+}
+
 /* 테마의 `u, ins` / `del a` 규칙. 본문이 아직 <u>/<ins>/<del>을 쓰지 않지만,
    쓰는 순간 밑줄이 링크와 헷갈리지 않도록 하는 규칙이라 함께 옮긴다. */
 u,
@@ -492,19 +515,3 @@ figure.highlight pre.highlight { margin: 0; padding: 1em; }
 .highlight .vi  { color: #f07178; }
 .highlight .il  { color: #f78c6c; }
 /* ROUGE-EXCEPTION-END */
-
-/* ── 방문한 링크 색 고정 ─────────────────────────────────
-   minimal-mistakes가 `a:visited`에 회색을 지정한다. 그 결과 이미 방문한
-   프로젝트 카드만 회색으로 바뀌어, 목록에서 한 항목만 비활성처럼 보였다.
-   포트폴리오에서 방문 여부는 전달할 정보가 아니므로 링크 색을 통일한다.
-   (테마 제거 후에도 브라우저 기본 :visited 가 남으므로 규칙은 유지한다) */
-a:visited {
-  color: inherit;
-}
-
-.post-body a:visited,
-.page-doc a:visited,
-.project-card a:visited,
-.hero-link:visited {
-  color: rgb(var(--accent));
-}
