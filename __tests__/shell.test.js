@@ -210,3 +210,167 @@ describe('after_footer_scripts: 셸 스크립트가 로드된다', () => {
     expect(scripts).toContain('/assets/js/contents-rail.js');
   });
 });
+
+// ──────────────────────────────────────────────────────────────────────
+// minimal-mistakes 제거 (Phase 2)
+// ──────────────────────────────────────────────────────────────────────
+
+describe('minimal-mistakes 의존성이 남아 있지 않다', () => {
+  test('_config.yml에 remote_theme 키가 없다', () => {
+    const cfg = readYaml('_config.yml');
+    expect(cfg.remote_theme).toBeUndefined();
+    // 주석 처리된 흔적이 아니라 실제 키가 없어야 한다: 파싱 결과와 원문을 함께 본다.
+    expect(readFileContent('_config.yml')).not.toMatch(/^\s*remote_theme\s*:/m);
+  });
+
+  test('_config.yml에 minimal_mistakes_skin 키가 없다', () => {
+    const cfg = readYaml('_config.yml');
+    expect(cfg.minimal_mistakes_skin).toBeUndefined();
+    expect(readFileContent('_config.yml')).not.toMatch(/^\s*minimal_mistakes_skin\s*:/m);
+  });
+
+  test('_config.yml plugins에 jekyll-remote-theme가 없다', () => {
+    const cfg = readYaml('_config.yml');
+    expect(cfg.plugins).not.toContain('jekyll-remote-theme');
+    // 나머지 플러그인은 그대로 남아 있어야 한다 (한 줄만 제거했다는 보장).
+    expect(cfg.plugins).toEqual(
+      expect.arrayContaining(['jekyll-sitemap', 'jekyll-seo-tag', 'jekyll-include-cache'])
+    );
+  });
+
+  test('Gemfile에서 jekyll-remote-theme만 빠지고 나머지 gem 줄은 유지된다', () => {
+    const gemfile = readFileContent('Gemfile');
+    expect(gemfile).not.toMatch(/jekyll-remote-theme/);
+    ['jekyll', 'jekyll-include-cache', 'jekyll-sitemap', 'jekyll-seo-tag'].forEach((g) => {
+      expect(gemfile).toMatch(new RegExp(`^gem "${g}"`, 'm'));
+    });
+    expect(readFileContent('Gemfile')).toMatch(/^source "https:\/\/rubygems\.org"$/m);
+  });
+
+  test('어떤 SCSS도 minimal-mistakes를 @import하지 않는다', () => {
+    const files = [...globFiles('_sass', (f) => f.endsWith('.scss')), 'assets/css/main.scss'];
+    files.forEach((f) => {
+      expect(readFileContent(f)).not.toMatch(/@import\s+["'][^"']*minimal-mistakes/);
+    });
+  });
+
+  test('테마 !default 변수를 먹이던 SCSS 변수가 남아 있지 않다', () => {
+    const main = readFileContent('assets/css/main.scss');
+    expect(main).not.toMatch(/^\s*\$(max-width|x-large)\s*:/m);
+  });
+
+  test('테마가 읽던 _data/navigation.yml이 삭제됐다 (categories.yml은 유지)', () => {
+    expect(fs.existsSync(path.join(ROOT, '_data/navigation.yml'))).toBe(false);
+    expect(fs.existsSync(path.join(ROOT, '_data/categories.yml'))).toBe(true);
+  });
+
+  test('_layouts·_includes 어디에도 site.data.navigation 참조가 없다', () => {
+    const files = [
+      ...globFiles('_layouts', (f) => f.endsWith('.html')),
+      ...globFiles('_includes', (f) => f.endsWith('.html')),
+    ];
+    expect(files.length).toBeGreaterThan(0);
+    files.forEach((f) => expect(readFileContent(f)).not.toMatch(/site\.data\.navigation/));
+  });
+
+  test('after_footer_scripts에 적힌 JS 파일이 모두 실제로 존재한다 (역도 성립)', () => {
+    const cfg = readYaml('_config.yml');
+    const declared = (cfg.after_footer_scripts || []).map((s) => s.replace(/^\//, ''));
+    declared.forEach((rel) => {
+      expect(fs.existsSync(path.join(ROOT, rel))).toBe(true);
+    });
+    // assets/js에 선언되지 않은 고아 파일이 없어야 한다.
+    const onDisk = globFiles('assets/js', (f) => f.endsWith('.js'));
+    expect(onDisk.sort()).toEqual(declared.sort());
+  });
+});
+
+describe('테마가 제공하던 베이스 규칙 재현', () => {
+  const base = () => readFileContent('_sass/custom/_base.scss');
+
+  test('루트 폰트 사다리(16/18/20/22px)가 테마와 같은 브레이크포인트에 존재한다', () => {
+    const src = base();
+    const html = src.match(/^html\s*\{[\s\S]*?\n\}/m);
+    expect(html).not.toBeNull();
+    const block = html[0];
+    expect(block).toMatch(/font-size:\s*16px/);
+    expect(block).toMatch(/@media \(min-width: 48em\)\s*\{\s*font-size:\s*18px/);
+    expect(block).toMatch(/@media \(min-width: 64em\)\s*\{\s*font-size:\s*20px/);
+    expect(block).toMatch(/@media \(min-width: 87\.5em\)\s*\{\s*font-size:\s*22px/);
+  });
+
+  test('레일 폭(13rem)이 rem이라 폰트 사다리에 매달려 있다 — 사다리가 사라지면 레이아웃이 좁아진다', () => {
+    expect(readFileContent('_sass/custom/_shell.scss')).toMatch(/grid-template-columns:\s*13rem/);
+  });
+
+  test('테마 리셋의 핵심 항목이 재현돼 있다', () => {
+    const src = base();
+    expect(src).toMatch(/\*::after\s*\{\s*box-sizing:\s*border-box/);   // box-sizing
+    expect(src).toMatch(/-webkit-font-smoothing:\s*antialiased/);        // 폰트 스무딩
+    expect(src).toMatch(/-moz-osx-font-smoothing:\s*grayscale/);
+    expect(src).toMatch(/^::selection\s*\{/m);                          // 선택 영역
+    expect(src).toMatch(/orphans:\s*3/);                                // 인쇄 고아줄
+    expect(src).toMatch(/img\s*\{[^}]*max-width:\s*100%/s);             // 반응형 이미지
+    expect(src).toMatch(/^nav ul \{ margin: 0; padding: 0; \}$/m);      // 내비 목록 리셋
+    expect(src).toMatch(/^table \{/m);                                  // 표 기본값
+    expect(src).toMatch(/abbr\[title\]/);                               // abbr
+  });
+
+  test('a:visited 오버라이드를 유지한다 (브라우저 UA :visited가 테마 없이도 남는다)', () => {
+    const src = base();
+    expect(src).toMatch(/^a:visited \{\s*\n\s*color: inherit;/m);
+    expect(src).toMatch(/\.hero-link:visited/);
+  });
+
+  test('rouge 팔레트가 유지된다 — 본문에 실제 코드블록이 있다', () => {
+    const src = base();
+    // cdc-pipeline-v2.md의 ```sql 블록이 뿜는 토큰 클래스들
+    ['k', 'mi', 'n', 'nb', 'nv', 'o', 'p'].forEach((t) => {
+      expect(src).toMatch(new RegExp(`\\.highlight \\.${t}\\s`));
+    });
+    const md = readFileContent('projects/student-intern/cdc-pipeline-v2.md');
+    expect(md).toMatch(/```sql/);
+  });
+});
+
+describe('rouge 예외 구간이 _base.scss의 격리된 꼬리다', () => {
+  const base = () => readFileContent('_sass/custom/_base.scss');
+
+  test('ROUGE-EXCEPTION 마커가 정확히 한 쌍 존재한다', () => {
+    const src = base();
+    expect((src.match(/ROUGE-EXCEPTION-START/g) || [])).toHaveLength(1);
+    expect((src.match(/ROUGE-EXCEPTION-END/g) || [])).toHaveLength(1);
+    expect(src.indexOf('ROUGE-EXCEPTION-START')).toBeLessThan(src.indexOf('ROUGE-EXCEPTION-END'));
+  });
+
+  test('END 마커 뒤에는 규칙이 남아 있지 않다 (예외 구간이 파일의 꼬리다)', () => {
+    const src = base();
+    const tail = src.slice(src.indexOf('ROUGE-EXCEPTION-END'));
+    // 마커 주석을 닫는 "*/" 외에 선언이나 선택자가 없어야 한다.
+    expect(tail.replace(/ROUGE-EXCEPTION-END \*\//, '').trim()).toBe('');
+  });
+
+  test('_base.scss의 모든 hex 리터럴은 마커 구간 안에 있다', () => {
+    const src = base();
+    const start = src.indexOf('/* ROUGE-EXCEPTION-START');
+    const end = src.indexOf('ROUGE-EXCEPTION-END');
+    const outside = src.slice(0, start) + src.slice(end);
+    expect(outside.match(/#[0-9a-fA-F]{3,8}\b/g) || []).toEqual([]);
+  });
+
+  test('레이아웃·인클루드에도 색 리터럴이 없다 (SVG는 currentColor만 쓴다)', () => {
+    const files = [
+      ...globFiles('_layouts', (f) => f.endsWith('.html')),
+      ...globFiles('_includes', (f) => f.endsWith('.html')),
+    ];
+    files.forEach((f) => {
+      const src = readFileContent(f);
+      expect({ file: f, hex: src.match(/#[0-9a-fA-F]{3,8}\b/g) || [] })
+        .toEqual({ file: f, hex: [] });
+      expect({ file: f, fn: src.match(/\brgba?\(|\bhsla?\(/g) || [] })
+        .toEqual({ file: f, fn: [] });
+    });
+    // 아이콘 SVG는 색을 currentColor로 상속받아야 한다.
+    expect(readFileContent('_includes/site-header.html')).toMatch(/currentColor/);
+  });
+});
