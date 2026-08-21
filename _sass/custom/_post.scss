@@ -1,3 +1,68 @@
+/* ── 홈 히어로 (Job 2) ──────────────────────────────────────────
+   레일에 있던 저자 사진을 여기로 옮겼다: 이 사이트는 이력서라 방문자의
+   첫 인상이 블로그보다 더 중요하다는 판단. 헤어라인 위주·무거운 배경 없는
+   세미나 톤을 유지하고, 1440px에서 스크롤 없이 한 화면에 들어오도록
+   여백을 절제한다. _layouts/page.html에서 page.url == "/"일 때만 렌더. */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 56px 0 40px;
+  border-bottom: 1px solid rgb(var(--line) / .4);
+  margin-bottom: 40px;
+}
+.hero-avatar {
+  flex: none;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgb(var(--line));
+}
+.hero-body { min-width: 0; }
+.hero-name {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: rgb(var(--fg));
+}
+.hero-name .hero-role {
+  margin-left: 12px;
+  font-size: 0.5em;
+  font-weight: 600;
+  color: rgb(var(--muted));
+  vertical-align: middle;
+}
+.hero-tagline {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgb(var(--fg) / .85);
+  max-width: 42rem;
+}
+.hero-current-role {
+  margin: 0 0 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: rgb(var(--accent));
+}
+.hero-skills { margin: 0 0 16px; }
+.hero-links { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(var(--accent));
+}
+.hero-link:hover { text-decoration: none; }
+
+@media (max-width: 640px) {
+  .hero { flex-direction: column; align-items: flex-start; gap: 20px; padding: 40px 0 32px; }
+  .hero-avatar { width: 96px; height: 96px; }
+}
+
+
 /* ── 페이지 헤더 ── */
 .page-head {
   padding: 64px 0 32px;

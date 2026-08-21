@@ -1,15 +1,20 @@
 ---
 title: "Portfolio"
 layout: page
+tagline: "Azure/AWS, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경험을 바탕으로 Solutions Architect로 활동하고 있습니다."
+current_role: "GSNeotek Cloud 팀 · Solutions Architect · 2025.04 ~"
+headline_skills:
+  - "Azure"
+  - "AWS"
+  - "Kubernetes"
+  - "Terraform"
+  - "AI / LLM"
 ---
 
 ## About Me
 
 안녕하세요, **Martin(조석영)** 입니다.
 
-Azure/AWS, Kubernetes, DevOps, AI 등 클라우드 인프라와 풀스택 개발 경험을 바탕으로 Solutions Architect로 활동하고 있습니다.
-
-- GSNeotek Cloud 팀 Solutions Architect (2025.04 ~)
 - EMRO AI 사업본부 AI 플랫폼 파트 (2023.04 ~ 2025.04)
 - 가천대학교 산업경영공학과 & 소프트웨어학과 복수전공 (Summa Cum Laude 수여)
 
