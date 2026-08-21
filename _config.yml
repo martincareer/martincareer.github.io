@@ -8,10 +8,14 @@ baseurl: ""
 locale: "ko-KR"
 
 # ──────────────────────────────────────────────
-# 테마 설정
+# 테마 설정 — 없음
 # ──────────────────────────────────────────────
-remote_theme: "mmistakes/minimal-mistakes@4.26.2"
-minimal_mistakes_skin: "air"
+# remote_theme(mmistakes/minimal-mistakes@4.26.2)과 minimal_mistakes_skin("air")을
+# 제거했다. 셸은 _layouts/default.html·page.html + _includes/*가 직접 그리고,
+# CSS는 assets/css/main.scss가 _sass/custom/* 파티셜만 임포트한다 — 테마의
+# 레이아웃·인클루드·SCSS 어느 것도 참조하는 곳이 없다.
+# skin은 테마 SCSS에 색을 먹이는 값이었고, 이제 색은 _sass/custom/_tokens.scss가
+# 전부 정의한다.
 
 # ──────────────────────────────────────────────
 # 저자 정보
@@ -33,7 +37,7 @@ author:
 # 플러그인
 # ──────────────────────────────────────────────
 plugins:
-  - jekyll-remote-theme
+  # jekyll-remote-theme 제거 — remote_theme 키가 사라져 소비자가 없다.
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-include-cache
@@ -45,6 +49,10 @@ plugins:
 # 읽던 값이었다. 셸을 자체 레이아웃(_layouts/default.html·page.html)으로
 # 옮기면서 그 사이드바를 더 이상 렌더링하지 않으므로 제거했다 — 저자 사진은
 # 이제 홈 히어로(_layouts/page.html의 .hero, page.url == "/"일 때만)에서만 보인다.
+#
+# 테마 전용 defaults 키(author_profile / toc / toc_sticky / share / related)는
+# 이 블록에 남아 있는 것이 하나도 없음을 확인했다(grep 0건). 우리 레이아웃은
+# layout / title / subtitle / tagline / current_role / headline_skills 만 읽는다.
 defaults:
   - scope:
       path: ""
@@ -97,5 +105,11 @@ exclude:
   - "career_*.md"
   - "경력기술서_*.md"
   - "architecture-overview.jpg"
+  # 프로필 원본(9MB). .gitignore에는 있었지만 exclude에 없어서 매 빌드마다
+  # _site/assets/images/profile_latest.JPG 로 그대로 복사되고 있었다.
+  # 파일명이 순수 ASCII(18바이트, NFD 문제 없음)임을 Dir.entries 바이트로
+  # 확인했고, glob 메타문자가 없는 정확한 경로라 assets/images/slides/*.jpg
+  # (아키텍처 이미지 9장)를 건드릴 위험이 없다.
+  - "assets/images/profile_latest.JPG"
   - "다이소_분임조_5조_Architecture-임베딩(사전 처리).jpg"
   - "다이소_분임조_5조_Architecture-전체 아키텍처.jpg"
