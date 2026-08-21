@@ -1,8 +1,7 @@
 ---
 title: "Search Naver News"
-layout: single
+layout: page
 permalink: /projects/student-intern/naver-news/
-author_profile: true
 ---
 
 <a href="/projects/student-intern/" class="back-to-list">← 목록으로 돌아가기</a>

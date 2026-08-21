@@ -41,13 +41,16 @@ plugins:
 # ──────────────────────────────────────────────
 # 기본값 설정
 # ──────────────────────────────────────────────
+# author_profile은 minimal-mistakes의 single.html(사이드바 프로필)에서만
+# 읽던 값이었다. 셸을 자체 레이아웃(_layouts/default.html·page.html)으로
+# 옮기면서 그 사이드바를 더 이상 렌더링하지 않으므로 제거했다 — 저자 사진은
+# 이제 홈 히어로(_layouts/page.html의 .hero, page.url == "/"일 때만)에서만 보인다.
 defaults:
   - scope:
       path: ""
       type: pages
     values:
-      layout: single
-      author_profile: true
+      layout: page
 
 # ──────────────────────────────────────────────
 # Markdown
@@ -60,6 +63,8 @@ kramdown:
 # 빌드 설정
 # ──────────────────────────────────────────────
 after_footer_scripts:
+  - /assets/js/theme-toggle.js
+  - /assets/js/contents-rail.js
   - /assets/js/back-button.js
 
 include:
@@ -69,5 +74,28 @@ exclude:
   - "*.gem"
   - "*.gemspec"
   - node_modules
+  - vendor
+  - __tests__
+  - package*.json
   - README.md
   - LICENSE
+  # 비공개 원천 문서 — 고객사 실명·서비스 URL·관리자 키 포함. .gitignore로
+  # git 추적은 안 되지만, Jekyll은 .gitignore를 보지 않고 소스 트리를 전부
+  # 빌드하므로 여기서도 명시적으로 제외해야 _site/에 유출되지 않는다.
+  #
+  # 파일명을 있는 그대로 정확히 적었다(글롭이 아니다) — 두 가지 이유:
+  #  1) 이 두 파일명은 이 iCloud 동기화 볼륨에서 NFD(자모 분해) 형태로
+  #     저장돼 있어, 한글 접두사 + "*" 형태의 glob을 NFC로 적으면 바이트가
+  #     달라 File.fnmatch가 매치하지 못한다(Ruby로 직접 검증함). 아래 값은
+  #     Dir.entries로 읽은 실제 바이트를 그대로 옮겼다.
+  #  2) Jekyll의 EntryFilter#glob_include?는 File.fnmatch?를 FNM_PATHNAME
+  #     없이 호출한다 — 즉 "*"가 "/"까지 건너뛴다. 순수 확장자 glob
+  #     ("*.jpg" 등)을 썼다면 assets/images/slides/*.jpg(프로젝트 아키텍처
+  #     이미지)까지 통째로 빌드에서 사라진다(실제로 겪었다). 파일명을
+  #     정확히 적으면 glob 메타문자가 없어 이 문제가 근본적으로 없다.
+  - "내부세미나_분임조5조.html"
+  - "career_*.md"
+  - "경력기술서_*.md"
+  - "architecture-overview.jpg"
+  - "다이소_분임조_5조_Architecture-임베딩(사전 처리).jpg"
+  - "다이소_분임조_5조_Architecture-전체 아키텍처.jpg"

@@ -1,10 +1,7 @@
 ---
 title: "J사 Azure 구독 간 마이그레이션"
-layout: single
+layout: page
 permalink: /projects/solutions-architect/azure-migration/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/solutions-architect/" class="back-to-list">← 목록으로 돌아가기</a>

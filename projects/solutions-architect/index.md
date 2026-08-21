@@ -1,8 +1,7 @@
 ---
 title: "Solutions Architect"
-layout: single
+layout: page
 permalink: /projects/solutions-architect/
-author_profile: true
 ---
 
 Solutions Architect로서 수행한 Azure/AWS 기반 클라우드 아키텍처 설계, 마이그레이션, DevOps 구축, AI 추천 서비스 구축 프로젝트입니다.

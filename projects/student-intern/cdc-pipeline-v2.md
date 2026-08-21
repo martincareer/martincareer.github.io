@@ -1,10 +1,7 @@
 ---
 title: "CDC Pipeline v2.0"
-layout: single
+layout: page
 permalink: /projects/student-intern/cdc-pipeline-v2/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/student-intern/" class="back-to-list">← 목록으로 돌아가기</a>

@@ -1,8 +1,7 @@
 ---
 title: "Student & Intern"
-layout: single
+layout: page
 permalink: /projects/student-intern/
-author_profile: true
 ---
 
 학부 과정, Kakao Enterprise SW Academy, 인턴 기간에 수행한 프로젝트입니다.

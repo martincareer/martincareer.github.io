@@ -1,10 +1,7 @@
 ---
 title: "Kakao I Cloud 설문조사 웹 서비스"
-layout: single
+layout: page
 permalink: /projects/student-intern/survey-service/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/student-intern/" class="back-to-list">← 목록으로 돌아가기</a>

@@ -1,10 +1,7 @@
 ---
 title: "Kakao I Cloud 캠핑 용품 거래 중개 서비스"
-layout: single
+layout: page
 permalink: /projects/student-intern/camping-service/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/student-intern/" class="back-to-list">← 목록으로 돌아가기</a>

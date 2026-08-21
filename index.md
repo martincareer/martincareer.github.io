@@ -1,9 +1,6 @@
 ---
 title: "Portfolio"
-layout: single
-author_profile: true
-toc: true
-toc_sticky: true
+layout: page
 ---
 
 ## About Me

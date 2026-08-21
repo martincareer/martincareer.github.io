@@ -1,10 +1,7 @@
 ---
 title: "L사 하우시스 웹크롤링"
-layout: single
+layout: page
 permalink: /projects/fullstack-developer/lx-crawling/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/fullstack-developer/" class="back-to-list">← 목록으로 돌아가기</a>

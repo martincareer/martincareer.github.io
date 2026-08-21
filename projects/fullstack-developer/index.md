@@ -1,8 +1,7 @@
 ---
 title: "Full Stack Developer"
-layout: single
+layout: page
 permalink: /projects/fullstack-developer/
-author_profile: true
 ---
 
 EMRO AI 사업본부에서 Full Stack Developer로 수행한 프로젝트입니다.

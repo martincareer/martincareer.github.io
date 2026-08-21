@@ -1,10 +1,7 @@
 ---
 title: "Azure 기반 DevOps 아키텍처 설계 및 구축 (Prototyping)"
-layout: single
+layout: page
 permalink: /projects/solutions-architect/devops-prototyping/
-author_profile: true
-toc: true
-toc_sticky: true
 ---
 
 <a href="/projects/solutions-architect/" class="back-to-list">← 목록으로 돌아가기</a>
