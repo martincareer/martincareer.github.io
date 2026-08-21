@@ -407,3 +407,19 @@ figure.highlight pre.highlight { margin: 0; padding: 1em; }
 .highlight .vi  { color: #f07178; }
 .highlight .il  { color: #f78c6c; }
 /* ROUGE-EXCEPTION-END */
+
+/* ── 방문한 링크 색 고정 ─────────────────────────────────
+   minimal-mistakes가 `a:visited`에 회색을 지정한다. 그 결과 이미 방문한
+   프로젝트 카드만 회색으로 바뀌어, 목록에서 한 항목만 비활성처럼 보였다.
+   포트폴리오에서 방문 여부는 전달할 정보가 아니므로 링크 색을 통일한다.
+   (테마 제거 후에도 브라우저 기본 :visited 가 남으므로 규칙은 유지한다) */
+a:visited {
+  color: inherit;
+}
+
+.post-body a:visited,
+.page-doc a:visited,
+.project-card a:visited,
+.hero-link:visited {
+  color: rgb(var(--accent));
+}

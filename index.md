@@ -79,15 +79,21 @@ headline_skills:
 <div class="skills-grid">
 
 <div class="skill-category">
-  <h4>☁️ Cloud & Infra</h4>
+  <h4>☁️ Azure</h4>
   <div class="skill-tags">
     <span class="skill-tag">Azure</span>
     <span class="skill-tag">AKS</span>
-    <span class="skill-tag">WAF</span>
     <span class="skill-tag">VNet</span>
     <span class="skill-tag">AGW</span>
+    <span class="skill-tag">WAF</span>
     <span class="skill-tag">Azure DevOps</span>
     <span class="skill-tag">AI Foundry</span>
+  </div>
+</div>
+
+<div class="skill-category">
+  <h4>☁️ AWS & 기타 클라우드</h4>
+  <div class="skill-tags">
     <span class="skill-tag">AWS</span>
     <span class="skill-tag">Amazon Bedrock</span>
     <span class="skill-tag">Lambda</span>

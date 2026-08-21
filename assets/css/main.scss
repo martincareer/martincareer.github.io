@@ -77,7 +77,12 @@ $x-large: 1400px;
 /* ── Skills Grid ── */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* 고정 3열. auto-fill 은 화면 폭에 따라 열 수가 바뀌어 마지막 줄에
+     빈 칸이 생기고 카드 폭도 들쭉날쭉해진다. 카테고리를 6개로 맞췄으므로
+     3×2 로 고정하는 편이 항상 가지런하다. */
+  grid-template-columns: repeat(3, 1fr);
+  /* 내용이 적은 카드가 행 높이만큼 늘어나 빈 공간이 생기는 것을 막는다 */
+  align-items: start;
   gap: 1.2em;
 }
 
@@ -86,6 +91,8 @@ $x-large: 1400px;
   border-radius: 10px;
   padding: 1.2em;
   border: 1px solid rgb(var(--line));
+  /* 항목 수가 달라도 카드 높이가 심하게 차이 나지 않도록 최소 높이만 준다 */
+  min-height: 9.5em;
 }
 
 .skill-category h4 {
@@ -148,6 +155,10 @@ $x-large: 1400px;
 }
 
 /* ── 모바일 ── */
+@media (max-width: 1100px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 600px) {
   .skills-grid { grid-template-columns: 1fr; }
   .career-timeline { padding-left: 1.5em; }

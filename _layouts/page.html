@@ -4,7 +4,7 @@ layout: default
 <article class="page-doc">
   {%- if page.url == "/" -%}
   <section class="hero" aria-label="프로필 소개">
-    <img class="hero-avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" width="128" height="128">
+    <img class="hero-avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" width="240" height="300">
     <div class="hero-body">
       <p class="hero-name">{{ site.author.name }}<span class="hero-role">{{ site.author.bio }}</span></p>
       {%- if page.tagline -%}<p class="hero-tagline">{{ page.tagline }}</p>{%- endif -%}
