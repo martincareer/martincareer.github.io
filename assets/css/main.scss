@@ -1,188 +1,27 @@
 ---
 ---
 
-/* remote_theme(minimal-mistakes)는 아직 유지한다 — 제거는 다음 작업.
-   다만 이 사이트의 셸(헤더·레일·푸터·페이지)은 이제 자체 레이아웃
-   (_layouts/default.html·page.html, _includes/*)이 직접 그리고, 그 안의
-   색은 전부 _sass/custom/_tokens.scss 토큰을 참조한다.
-   페리윙클 단색 변수 하드코딩은 제거했다 — 이 파일 아래 커스텀
-   컴포넌트(career-timeline/skills-grid/project-card 등)도 전부
-   토큰(rgb(var(--accent)) 등)으로 다시 칠했다. */
+/* ── 스타일시트 진입점 ───────────────────────────────────────────
+   minimal-mistakes(remote_theme)의 스킨·본체 임포트를 제거했다. 이 사이트의
+   셸(헤더·레일·푸터·페이지)은 자체 레이아웃(_layouts/default.html·page.html,
+   _includes/*)이 직접 그리고, 테마가 조용히 제공하던 리셋과 요소 단위 기본값
+   (루트 폰트 사다리·box-sizing·목록/표/폼/이미지 기본, rouge 팔레트)은
+   custom/base가 직접 책임진다.
 
-$max-width: 1400px;
-$x-large: 1400px;
+   테마 변수 오버라이드($max-width / $x-large = 1400px)도 같이 지웠다 —
+   테마의 !default 변수를 먹이는 것만이 존재 이유였고, 우리 파티셜은 SCSS
+   변수 대신 CSS 커스텀 프로퍼티(_tokens.scss)와 리터럴 값만 쓴다
+   (정의 지점 외 참조가 없음을 grep으로 확인했다).
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
-@import "minimal-mistakes";
+   이 파일은 임포트 매니페스트로만 남긴다. 색은 전부 custom/tokens의
+   토큰을 rgb(var(--…))로 참조하며, 유일한 예외는 custom/base 안의
+   ROUGE-EXCEPTION 구간이다. */
 
-/* 세미나 셸 — 헤더/레일/푸터/페이지가 실제로 쓰는 규칙은 전부 여기 안에 있다.
-   테마 스킨 뒤에 임포트해서, 같은 특이성(바닐라 태그 선택자 등)에서는
-   이 임포트들이 소스 순서상 이긴다. */
 @import "custom/tokens";
 @import "custom/base";
 @import "custom/components";
 @import "custom/shell";
 @import "custom/post";
-
-/* ── Career Timeline (index.md에서 직접 사용하는 커스텀 컴포넌트) ── */
-.career-timeline {
-  position: relative;
-  padding-left: 2em;
-  border-left: 2px solid rgb(var(--accent));
-}
-
-.career-item {
-  position: relative;
-  margin-bottom: 1.8em;
-  padding-left: 1em;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: -2.35em;
-    top: 0.35em;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgb(var(--accent));
-    border: 2px solid rgb(var(--bg));
-  }
-}
-
-.career-date {
-  font-size: 0.8em;
-  color: rgb(var(--muted));
-  font-weight: 600;
-  margin-bottom: 0.2em;
-}
-
-.career-content h4 {
-  margin: 0 0 0.2em;
-  font-size: 1em;
-}
-
-.career-role {
-  font-size: 0.85em;
-  color: rgb(var(--accent));
-  font-weight: 600;
-  margin: 0 0 0.3em;
-}
-
-.career-content p:last-child {
-  font-size: 0.85em;
-  color: rgb(var(--muted));
-  margin: 0;
-}
-
-/* ── Skills Grid ── */
-.skills-grid {
-  display: grid;
-  /* 고정 3열. auto-fill 은 화면 폭에 따라 열 수가 바뀌어 마지막 줄에
-     빈 칸이 생기고 카드 폭도 들쭉날쭉해진다. 카테고리를 6개로 맞췄으므로
-     3×2 로 고정하는 편이 항상 가지런하다. */
-  grid-template-columns: repeat(3, 1fr);
-  /* 내용이 적은 카드가 행 높이만큼 늘어나 빈 공간이 생기는 것을 막는다 */
-  align-items: start;
-  gap: 1.2em;
-}
-
-.skill-category {
-  background: rgb(var(--subtle));
-  border-radius: 10px;
-  padding: 1.2em;
-  border: 1px solid rgb(var(--line));
-  /* 항목 수가 달라도 카드 높이가 심하게 차이 나지 않도록 최소 높이만 준다 */
-  min-height: 9.5em;
-}
-
-.skill-category h4 {
-  margin: 0 0 0.8em;
-  font-size: 0.95em;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4em;
-}
-
-.skill-tag {
-  display: inline-block;
-  padding: 0.25em 0.7em;
-  background: rgb(var(--accent) / 0.15);
-  color: rgb(var(--fg) / 0.75);
-  border-radius: 14px;
-  font-size: 0.78em;
-  font-weight: 500;
-}
-
-/* ── Project Cards ── */
-.project-card {
-  background: rgb(var(--subtle));
-  border-radius: 10px;
-  padding: 1.4em;
-  margin-bottom: 1.2em;
-  border: 1px solid rgb(var(--line));
-  transition: box-shadow 0.2s;
-
-  &:hover {
-    box-shadow: 0 2px 12px rgb(var(--fg) / 0.06);
-  }
-
-  h4 {
-    margin: 0 0 0.3em;
-    font-size: 1.05em;
-  }
-}
-
-.project-meta {
-  font-size: 0.8em;
-  color: rgb(var(--muted));
-  margin: 0 0 0.6em;
-}
-
-.project-card > p {
-  font-size: 0.88em;
-  line-height: 1.6;
-  color: rgb(var(--fg) / 0.75);
-}
-
-.project-result {
-  font-size: 0.85em;
-  font-weight: 600;
-  color: rgb(var(--ok));
-  margin-top: 0.6em;
-}
-
-/* ── 모바일 ── */
-@media (max-width: 1100px) {
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .career-timeline { padding-left: 1.5em; }
-}
-
-/* ── 뒤로가기 버튼 (제목 위, assets/js/back-button.js가 .page-title 앞으로 옮긴다) ── */
-.back-to-list {
-  display: inline-block;
-  padding: 0.3em 0.85em;
-  font-size: 0.75em;
-  font-weight: 500;
-  color: rgb(var(--muted));
-  background: transparent;
-  border: 1px solid rgb(var(--line));
-  border-radius: 20px;
-  text-decoration: none;
-  transition: all 0.2s;
-  letter-spacing: -0.02em;
-  margin-bottom: 1em;
-
-  &:hover {
-    background: rgb(var(--accent) / 0.1);
-    border-color: rgb(var(--accent));
-    color: rgb(var(--fg));
-    text-decoration: none;
-  }
-}
+/* 포트폴리오 컴포넌트(career-timeline·skills-grid·project-card·back-to-list)는
+   원래 이 파일 안에 인라인으로 있었다. 마지막에 임포트해 소스 순서를 그대로 둔다. */
+@import "custom/portfolio";
